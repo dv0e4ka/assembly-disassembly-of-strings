@@ -20,15 +20,11 @@ public class GradesReversed {
     }
 
     public String serializeGrades(String[] grades) {
-        // [Вероника Чехова физика — Безупречно]
         StringBuilder string = new StringBuilder();
         for (int i = 0; i < grades.length; i++) {
-            StringBuilder stringBuilder = new StringBuilder();
             String[] words = grades[i].split(" ");
             words[4] = gradeStringToInt(words[4]);
-            stringBuilder.append(String.join("," + words[0], words[1], words[2], words[4]));
-            string.append(stringBuilder);
-            string.append(";");
+            string.append(String.join(",", words[0] + words[1] + words[2] + words[4] + ";"));
         }
         String serializeGrade = string.toString();
         return serializeGrade;
